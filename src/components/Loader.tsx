@@ -68,8 +68,10 @@ export default function Loader({ onComplete }: { onComplete: () => void }) {
       <div className="relative flex flex-col items-center gap-8">
         <div ref={beanRef} className="relative w-20 h-20">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-700 to-amber-950 shadow-2xl shadow-amber-900/50 flex items-center justify-center">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-1 .1-1.3.5-.4.4-.6 1-.3 1.5l3.5 7.5-2.5 2.5c-.4.4-.4 1 0 1.4.4.4 1 .4 1.4 0l2.5-2.5 7.5 3.5c.5.2 1.1.1 1.5-.3.4-.4.6-.9.4-1.4z"/>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+              <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z" />
+              <path d="M6 2v3M10 2v3M14 2v3" />
             </svg>
           </div>
           {/* Steam */}

@@ -15,8 +15,8 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #050505;
-    color: #ffffff;
+    background-color: #0C0A09;
+    color: #F5EFE4;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -30,26 +30,36 @@
   * {
     scrollbar-width: none;
   }
+
+  ::selection {
+    background: rgba(201, 162, 75, 0.3);
+    color: #F5EFE4;
+  }
+
+  :focus-visible {
+    outline: 2px solid #C9A24B;
+    outline-offset: 3px;
+  }
 }
 
 @layer utilities {
   .text-gold {
-    color: #D4AF37;
+    color: #C9A24B;
   }
   .bg-gold {
-    background-color: #D4AF37;
+    background-color: #C9A24B;
   }
   .border-gold {
-    border-color: #D4AF37;
+    border-color: #C9A24B;
   }
   .text-muted {
-    color: #A8A8A8;
+    color: #A8A29E;
   }
   .bg-glass {
-    background: rgba(17, 17, 17, 0.6);
+    background: rgba(28, 25, 23, 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(245, 239, 228, 0.05);
   }
   .bg-glass-light {
     background: rgba(255, 255, 255, 0.03);
@@ -77,6 +87,103 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  .gold-shimmer {
+    background: linear-gradient(
+      115deg,
+      #8b6b1f 0%,
+      #ead9a5 15%,
+      #c9a24b 30%,
+      #6b4f10 50%,
+      #ead9a5 70%,
+      #c9a24b 85%,
+      #8b6b1f 100%
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+  .gold-liquid {
+    position: relative;
+    background:
+      linear-gradient(
+        130deg,
+        transparent 0%,
+        rgba(245, 239, 228, 0.28) 10%,
+        transparent 25%,
+        rgba(245, 239, 228, 0.12) 40%,
+        transparent 55%,
+        rgba(245, 239, 228, 0.2) 70%,
+        transparent 85%,
+        rgba(245, 239, 228, 0.08) 95%,
+        transparent 100%
+      ),
+      linear-gradient(
+        130deg,
+        transparent 0%,
+        #b08d35 15%,
+        #ead9a5 30%,
+        #c9a24b 45%,
+        #b08d35 60%,
+        #ead9a5 75%,
+        #c9a24b 90%,
+        transparent 100%
+      ),
+      linear-gradient(
+        130deg,
+        #5c4310 0%,
+        #8b6b1f 12%,
+        #c9a24b 28%,
+        #6b4f10 44%,
+        #8b6b1f 60%,
+        #c9a24b 76%,
+        #5c4310 100%
+      );
+    background-size: 160% 100%, 240% 100%, 320% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: liquid-shimmer 6s ease-in-out infinite;
+  }
+  .gold-liquid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    -webkit-text-fill-color: initial;
+    background-clip: initial;
+  }
+  @keyframes liquid-shimmer {
+    0%, 100% {
+      background-position: 100% 50%, 0% 50%, 50% 50%;
+    }
+    50% {
+      background-position: 0% 50%, 100% 50%, 150% 50%;
+    }
+  }
+  :focus-visible {
+    outline: 1px solid #c9a24b;
+    outline-offset: 3px;
+  }
+}
+
+/* Accessibility: calm everything down */
+@media (prefers-reduced-motion: reduce) {
+  .gold-shimmer,
+  .noise-overlay {
+    animation: none !important;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

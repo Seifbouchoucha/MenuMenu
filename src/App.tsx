@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import MenuSection from './components/MenuSection';
+import ReserveCTA from './components/ReserveCTA';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import { menuSections } from './data/menuData';
@@ -100,7 +101,7 @@ export default function App() {
           // Hero image scale + overlay
           const heroLocal = Math.min(1, Math.max(0, p / slotEnd));
           gsap.set(heroImg, { scale: 1 + heroLocal * 0.35, y: -heroLocal * 30 });
-          if (heroOverlay) gsap.set(heroOverlay, { opacity: 0.4 + heroLocal * 0.4 });
+          if (heroOverlay) gsap.set(heroOverlay, { opacity: 0.25 + heroLocal * 0.35 });
 
           // Hero content fades out faster
           if (heroContent) {
@@ -172,13 +173,14 @@ export default function App() {
 
         <main>
           <div ref={menuRef} className="relative">
-            <Hero index={0} total={TOTAL} />
+            <Hero index={0} total={TOTAL} active={!loading} />
             {allItems.map((item, i) => (
               <MenuSection key={item.id} item={item} index={i + 1} total={TOTAL} />
             ))}
           </div>
         </main>
 
+        <ReserveCTA />
         <Footer />
         <div className="noise-overlay" />
       </div>

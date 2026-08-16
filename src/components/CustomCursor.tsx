@@ -27,7 +27,7 @@ export default function CustomCursor() {
 
     const handleHover = () => {
       gsap.to(cursor, { scale: 0.5, duration: 0.3 });
-      gsap.to(follower, { scale: 2.5, borderColor: '#D4AF37', backgroundColor: 'rgba(212, 175, 55, 0.05)', duration: 0.4 });
+      gsap.to(follower, { scale: 2.5, borderColor: '#C9A24B', backgroundColor: 'rgba(201, 162, 75, 0.05)', duration: 0.4 });
     };
 
     const handleHoverEnd = () => {
